@@ -26,9 +26,24 @@ const SITE_CONFIG = {
   },
   
   writings: {
-      threads: [
+      WinningThreads: [
       { content: "Lombard is redefining how Bitcoin moves onchain.", url: "https://x.com/ajah_elube/status/1979095043786051702", engagement: "4.4K likes"},
       { content: "I was astonished to be spotlighted as a BARD of the Week.", url: "https://x.com/ajah_elube/status/1979247757560098967", engagement: "22k likes", featured: true  },
+       { content: "Bitget Wallet", url: "https://x.com/ajah_elube/status/1907777517357830624", engagement: "48k views"},
+       { content: "Toby", url: "https://x.com/ajah_elube/status/1939050975592878205", engagement: "15k views"},
+       { content: "URnetwork", url: "https://x.com/ajah_elube/status/1941461980100858335", engagement: "11k views"},
+       { content: "Skillful AI", url: "https://x.com/ajah_elube/status/1928067236003996091", engagement: "7k views"},
+       { content: "Hilo Token", url: "https://x.com/ajah_elube/status/1892242340896539073", engagement: "3.8k views"},
+       { content: "UpRock", url: "https://x.com/ajah_elube/status/1900578005711261833?s=19", engagement: "32k views"},
+       { content: "CoinW", url: "https://x.com/ajah_elube/status/1909270198302949632?s=19", engagement: "15k views"},
+       { content: "AQA", url: "https://x.com/ajah_elube/status/1903476189299155391", engagement: "12k views"},
+       { content: "Fantasy Fanton", url: "https://x.com/ajah_elube/status/1866000818287136864", engagement: "2.8k views"},
+       { content: "Circularweb3 (PART ONE)", url: "https://x.com/ajah_elube/status/1874711794746339659", engagement: "2.1k views"},
+        { content: "Aicoach Mia", url: "https://x.com/ajah_elube/status/1883529393726775622?t=t32ERtEyvTyIW_mas9xhHw&s=19", engagement: "1.8k views"},
+        //  { content: "", url: "", engagement: ""},
+        //   { content: "", url: "", engagement: ""},
+        //    { content: "", url: "", engagement: ""},
+      
     ],
     WritingForX: [
       { title: " Writing A Thread That Wins", url: "https://x.com/ajah_elube/status/1918197709930205503", date: "May 2025", featured: true },
@@ -266,7 +281,7 @@ const RecentWritings = ({ onNavigate }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  const featuredThreads = SITE_CONFIG.writings.threads.filter(t => t.featured).slice(0, 3);
+  const featuredWinningThreads = SITE_CONFIG.writings.WinningThreads.filter(t => t.featured).slice(0, 3);
   const featuredProjects = SITE_CONFIG.writings.projects.filter(p => p.featured).slice(0, 2);
   const featuredPosts = SITE_CONFIG.writings.WritingForX.filter(p => p.featured).slice(0, 2);
 
@@ -304,15 +319,15 @@ const RecentWritings = ({ onNavigate }) => {
           </div>
         )}
 
-        {featuredThreads.length > 0 && (
+        {featuredWinningThreads.length > 0 && (
           <div className="mb-12">
             <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
               <MessageSquare className="text-purple-600" size={28} />
               Latest Threads
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {featuredThreads.map((item, idx) => (
-                <FeaturedWritingCard key={idx} item={item} icon={MessageSquare} type="threads" />
+              {featuredWinningThreads.map((item, idx) => (
+                <FeaturedWritingCard key={idx} item={item} icon={MessageSquare} type="WinningThreads" />
               ))}
             </div>
           </div>
@@ -383,71 +398,129 @@ const WritingCard = ({ item, icon: Icon, type }) => {
 };
 
 const WritingsSection = () => {
-  const [activeTab, setActiveTab] = useState('threads');
-  const [loaded, setLoaded] = useState(false);
+  const [activeTab, setActiveTab] = useState('WinningThreads'); // Default open tab
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setLoaded(true);
+    setMounted(true);
   }, []);
 
+  // Fix for iPhone scroll starting from bottom
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }, [activeTab]);
+
   const tabs = [
-    { id: ' WritingForX', label: ' Writing For X ', icon: () => <XLogo size={18} />, data: SITE_CONFIG.writings.WritingForX },
-    { id: 'threads', label: 'Threads', icon: MessageSquare, data: SITE_CONFIG.writings.threads },
-    { id: 'projects', label: 'Projects', icon: Briefcase, data: SITE_CONFIG.writings.projects },
-    { id: 'collaborations', label: 'Collaborations', icon: Users, data: SITE_CONFIG.writings.collaborations },
-    { id: 'brandinweb3', label: 'Brand in Web3 Series', icon: FileText, data: SITE_CONFIG.writings.brandinweb3 },
-    { id: 'goodMorning', label: 'Good Morning Posts', icon: Sparkles, data: SITE_CONFIG.writings.goodMorningPosts },
-    
+    {
+      id: 'WinningThreads',
+      label: 'Winning Threads',
+      icon: FileText,
+      data: SITE_CONFIG.writings.WinningThreads,
+    },
+    {
+      id: 'projects',
+      label: 'Projects',
+      icon: Briefcase,
+      data: SITE_CONFIG.writings.projects,
+    },
+    {
+      id: 'collaborations',
+      label: 'Collaborations',
+      icon: Users,
+      data: SITE_CONFIG.writings.collaborations,
+    },
+    {
+      id: 'brandinweb3',
+      label: 'Brand in Web3',
+      icon: Sparkles,
+      data: SITE_CONFIG.writings.brandinweb3,
+    },
+    {
+      id: 'goodMorningPosts',
+      label: 'Good Morning Posts',
+      icon: MessageSquare,
+      data: SITE_CONFIG.writings.goodMorningPosts,
+    },
+    {
+      id: 'WritingForX',
+      label: 'WritingForX',
+      icon: XLogo,
+      data: SITE_CONFIG.writings.WritingForX,
+    },
   ];
 
-  const activeTabData = tabs.find(tab => tab.id === activeTab);
+  const activeTabData = tabs.find((tab) => tab.id === activeTab);
 
   return (
-    <div className="relative min-h-screen py-20 px-4 bg-gradient-to-b from-purple-50 via-blue-50 to-pink-50 overflow-hidden">
-      {/* Animated background blobs */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+    <div className="relative min-h-screen px-4 py-20 bg-gradient-to-br from-purple-100 via-blue-50 to-pink-100 overflow-hidden">
+      {/* Background gradient blobs */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-20 right-20 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl animation-delay-4000"></div>
       </div>
 
-      <div className={`relative z-10 max-w-6xl mx-auto transition-all duration-1000 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <h2 className="text-4xl sm:text-5xl font-bold text-center mb-4 pb-10 bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 bg-clip-text text-transparent">
-          All Writings & Thoughts
+      <div
+        className={`relative z-10 max-w-6xl mx-auto transition-all duration-1000 ${
+          mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}
+      >
+        <h2 className="text-4xl sm:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 bg-clip-text text-transparent">
+          Writings & Thoughts
         </h2>
-        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-          A complete collection of threads, articles, and insights shared across platforms
+        <p className="text-center text-gray-700 mb-12 text-lg">
+          Explore curated threads, projects, collaborations, and posts that reflect creativity and impact.
         </p>
 
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {tabs.map(tab => {
-            const Icon = tab.icon;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-5 py-3 rounded-full transition-all duration-300 ${
-                  activeTab === tab.id 
-                    ? 'bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 text-white shadow-lg scale-105' 
-                    : 'bg-white/90 backdrop-blur-sm text-gray-700 hover:bg-purple-50 border border-purple-200/50 hover:border-purple-300'
-                }`}
-              >
-                {typeof Icon === 'function' ? <Icon /> : <Icon size={18} />}
-                {tab.label}
-              </button>
-            );
-          })}
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {activeTabData?.data.map((item, idx) => (
-            <WritingCard key={idx} item={item} icon={activeTabData.icon} type={activeTab} />
+        {/* Tabs */}
+        <div className="flex flex-wrap justify-center gap-3 mb-10">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-300 ${
+                activeTab === tab.id
+                  ? 'bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 text-white border-transparent shadow-md scale-105'
+                  : 'bg-white/70 text-gray-700 hover:bg-white hover:shadow-sm border-gray-200'
+              }`}
+            >
+              {typeof tab.icon === 'function' ? <tab.icon size={18} /> : <tab.icon size={18} />}
+              {tab.label}
+            </button>
           ))}
         </div>
+
+        {/* Content */}
+        {activeTabData?.data && activeTabData.data.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {activeTabData.data.map((item, idx) => (
+              <WritingCard key={idx} item={item} icon={activeTabData.icon} type={activeTab} />
+            ))}
+          </div>
+        ) : (
+          <p className="text-center text-gray-500">No content available for this section yet.</p>
+        )}
+
+        {/* Read More on Notion Button */}
+<div className="text-center mt-16">
+  <a
+    href="https://immediate-marscapone-4ca.notion.site/Proof-of-Work-Ajah-Elube-290696411a4b8018ba7dfabcfb80e65e" // 🔗 Replace this with your client’s Notion URL
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 text-white rounded-full font-semibold hover:shadow-2xl transition-all hover:scale-105 text-lg"
+  >
+    <ExternalLink size={20} />
+    Read More on Notion
+  </a>
+</div>
+
       </div>
     </div>
   );
 };
+
 
 const Contact = () => {
   const [loaded, setLoaded] = useState(false);
@@ -461,8 +534,8 @@ const Contact = () => {
       {/* Animated background blobs */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-20 right-20 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl animation-delay-4000"></div>
       </div>
 
       <div className={`relative z-10 max-w-2xl w-full transition-all duration-1000 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -474,6 +547,7 @@ const Contact = () => {
         </p>
 
         <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl p-8 space-y-6">
+          {/* Email */}
           <a 
             href={`mailto:${SITE_CONFIG.email}`}
             className="flex items-center gap-4 p-6 bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 text-white rounded-xl hover:shadow-xl transition-all hover:scale-105"
@@ -485,27 +559,51 @@ const Contact = () => {
             </div>
           </a>
 
+          {/* WhatsApp */}
           <a 
-            href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`}
-            className="flex items-center gap-4 p-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-xl transition-all hover:scale-105"
+            href={`https://wa.me/${SITE_CONFIG.phone.replace(/\D/g, '')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 p-6 bg-green-500 text-white rounded-xl hover:shadow-xl transition-all hover:scale-105"
           >
-            <Phone size={28} />
+            <svg viewBox="0 0 32 32" width="28" height="28" fill="currentColor">
+              <path d="M16 .667C7.64.667.667 7.64.667 16c0 2.827.747 5.48 2.04 7.786L1.333 31l7.387-1.333A15.23 15.23 0 0016 31.333C24.36 31.333 31.333 24.36 31.333 16S24.36.667 16 .667zm0 27.2a11.86 11.86 0 01-6.04-1.627l-.427-.24-4.387.787.8-4.266-.28-.44A11.77 11.77 0 014.267 16c0-6.453 5.28-11.733 11.733-11.733 6.454 0 11.734 5.28 11.734 11.733 0 6.454-5.28 11.734-11.734 11.734zm6.48-8.4c-.36-.18-2.12-1.04-2.453-1.16-.333-.12-.573-.18-.813.18-.24.347-.933 1.16-1.146 1.4-.213.24-.427.267-.787.087-.36-.18-1.52-.56-2.893-1.787-1.067-.947-1.787-2.12-2-2.48-.213-.36-.02-.56.16-.747.16-.16.36-.427.54-.64.18-.213.24-.36.36-.6.12-.24.06-.453-.027-.64-.087-.187-.813-1.96-1.12-2.68-.293-.707-.587-.613-.813-.627-.213-.013-.453-.013-.693-.013-.24 0-.64.093-.973.453-.333.36-1.28 1.253-1.28 3.053 0 1.8 1.307 3.547 1.493 3.787.187.24 2.573 3.933 6.24 5.52.873.373 1.553.6 2.08.773.873.28 1.667.24 2.293.147.7-.107 2.12-.867 2.42-1.707.3-.84.3-1.56.213-1.707-.093-.147-.333-.24-.693-.413z"/>
+            </svg>
             <div className="flex-1">
-              <div className="font-semibold text-lg">Call Me</div>
-              <div className="text-blue-100 text-sm">{SITE_CONFIG.phone}</div>
+              <div className="font-semibold text-lg">Chat on WhatsApp</div>
+              <div className="text-green-100 text-sm">{SITE_CONFIG.phone}</div>
             </div>
           </a>
 
+          {/* Telegram */}
           <a 
-            href={SITE_CONFIG.twitter}
+            href="https://t.me/ajahElube"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-4 p-6 bg-black text-white rounded-xl hover:shadow-xl transition-all hover:scale-105"
+            className="flex items-center gap-4 p-6 bg-sky-500 text-white rounded-xl hover:shadow-xl transition-all hover:scale-105"
           >
-            <XLogo size={28} />
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+              <path d="M9.99 14.04l-.39 5.51c.56 0 .8-.25 1.1-.56l2.63-2.5 5.45 3.98c1 .55 1.72.26 1.97-.93l3.58-16.84c.32-1.49-.54-2.07-1.53-1.71L1.63 9.22c-1.46.56-1.44 1.36-.26 1.72l5.56 1.73 12.9-8.12c.61-.37 1.17-.17.71.2L9.99 14.04z"/>
+            </svg>
             <div className="flex-1">
-              <div className="font-semibold text-lg">Follow on X</div>
-              <div className="text-gray-300 text-sm">Daily thoughts and threads</div>
+              <div className="font-semibold text-lg">Message on Telegram</div>
+              <div className="text-sky-100 text-sm">@ajah_elube</div>
+            </div>
+          </a>
+
+          {/* Medium */}
+          <a 
+            href="https://medium.com/@ajahelube"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 p-6 bg-gray-900 text-white rounded-xl hover:shadow-xl transition-all hover:scale-105"
+          >
+            <svg viewBox="0 0 1043.63 592.71" width="28" height="28" fill="currentColor">
+              <path d="M588.67,296.35c0,163.65-131.95,296.35-294.33,296.35S0,460,0,296.35,131.95,0,294.33,0,588.67,132.7,588.67,296.35Z"/><path d="M914.4,296.35c0,153.33-65.9,277.54-147.21,277.54S620,449.68,620,296.35,685.9,18.81,767.19,18.81,914.4,143,914.4,296.35Z"/><path d="M1043.63,296.35c0,140.62-23.4,254.69-52.29,254.69S939.05,437,939.05,296.35,962.46,41.66,991.34,41.66,1043.63,155.73,1043.63,296.35Z"/>
+            </svg>
+            <div className="flex-1">
+              <div className="font-semibold text-lg">Read on Medium</div>
+              <div className="text-gray-300 text-sm">Essays & reflections</div>
             </div>
           </a>
         </div>
@@ -518,6 +616,7 @@ const Contact = () => {
   );
 };
 
+
 // ============================================
 // MAIN APP
 // ============================================
@@ -526,9 +625,13 @@ const App = () => {
   const [activeSection, setActiveSection] = useState('Home');
 
   const handleNavigate = (section) => {
-    setActiveSection(section);
+  setActiveSection(section);
+  // Wait for DOM to update before scrolling
+  setTimeout(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  }, 150);
+};
+
 
   return (
     <div className="font-sans antialiased relative">
@@ -571,7 +674,7 @@ const App = () => {
 
       <footer className="bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900 text-white py-8 text-center">
         <p className="text-purple-200">
-          © 2025 {SITE_CONFIG.name}.<p>Built By Origboge</p>.
+          © 2025 {SITE_CONFIG.name}.<p>Built By Origboge</p>
         </p>
       </footer>
     </div>
