@@ -437,12 +437,12 @@ const WritingsSection = () => {
       icon: Sparkles,
       data: SITE_CONFIG.writings.brandinweb3,
     },
-    {
-      id: 'goodMorningPosts',
-      label: 'Good Morning Posts',
-      icon: MessageSquare,
-      data: SITE_CONFIG.writings.goodMorningPosts,
-    },
+    // {
+    //   id: 'goodMorningPosts',
+    //   label: 'Good Morning Posts',
+    //   icon: MessageSquare,
+    //   data: SITE_CONFIG.writings.goodMorningPosts,
+    // },
     {
       id: 'WritingForX',
       label: 'WritingForX',
