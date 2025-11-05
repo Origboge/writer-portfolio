@@ -695,10 +695,12 @@ const App = () => {
       {activeSection === 'Contact' && <Contact />}
 
       <footer className="bg-gradient-to-r from-purple-900 via-blue-900 to-purple-900 text-white py-8 text-center">
-        <p className="text-purple-200">
-          © 2025 {SITE_CONFIG.name}.<p>Built By Origboge</p>
-        </p>
-      </footer>
+  <div className="text-purple-200">
+    <p>© 2025 {SITE_CONFIG.name}.</p>
+    <p>Built By Origboge</p>
+  </div>
+</footer>
+
     </div>
   );
 };
