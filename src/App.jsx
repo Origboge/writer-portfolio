@@ -392,7 +392,7 @@ const WritingCard = ({ item, icon: Icon, type }) => {
     <img
       src={item.image}
       alt={item.title || item.content}
-      className="w-full h-56 object-cover rounded-lg"
+      className="w-full h-56 object-contain rounded-lg"
     />
   </div>
 )}
