@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Mail, ExternalLink, FileText, Briefcase, Users, Sparkles, MessageSquare, ArrowRight, Phone } from 'lucide-react';
 import profileImg from './assets/profile.jpg';
 
+
+
 // ============================================
 // CONTENT CONFIGURATION - EDIT THIS SECTION
 // ============================================
@@ -27,71 +29,69 @@ const SITE_CONFIG = {
   
   writings: {
       WinningThreads: [
-      { content: "Lombard is redefining how Bitcoin moves onchain.", url: "https://x.com/ajah_elube/status/1979095043786051702", engagement: "4.4K likes"},
-      { content: "I was astonished to be spotlighted as a BARD of the Week.", url: "https://x.com/ajah_elube/status/1979247757560098967", engagement: "22k likes", featured: true  },
-       { content: "Bitget Wallet", url: "https://x.com/ajah_elube/status/1907777517357830624", engagement: "48k views"},
-       { content: "Toby", url: "https://x.com/ajah_elube/status/1939050975592878205", engagement: "15k views"},
-       { content: "URnetwork", url: "https://x.com/ajah_elube/status/1941461980100858335", engagement: "11k views"},
-       { content: "Skillful AI", url: "https://x.com/ajah_elube/status/1928067236003996091", engagement: "7k views"},
-       { content: "Hilo Token", url: "https://x.com/ajah_elube/status/1892242340896539073", engagement: "3.8k views"},
-       { content: "UpRock", url: "https://x.com/ajah_elube/status/1900578005711261833?s=19", engagement: "32k views"},
-       { content: "CoinW", url: "https://x.com/ajah_elube/status/1909270198302949632?s=19", engagement: "15k views"},
-       { content: "AQA", url: "https://x.com/ajah_elube/status/1903476189299155391", engagement: "12k views"},
-       { content: "Fantasy Fanton", url: "https://x.com/ajah_elube/status/1866000818287136864", engagement: "2.8k views"},
-       { content: "Circularweb3 (PART ONE)", url: "https://x.com/ajah_elube/status/1874711794746339659", engagement: "2.1k views"},
-        { content: "Aicoach Mia", url: "https://x.com/ajah_elube/status/1883529393726775622?t=t32ERtEyvTyIW_mas9xhHw&s=19", engagement: "1.8k views"},
-        //  { content: "", url: "", engagement: ""},
-        //   { content: "", url: "", engagement: ""},
-        //    { content: "", url: "", engagement: ""},
-      
-    ],
-    WritingForX: [
-      { title: " Writing A Thread That Wins", url: "https://x.com/ajah_elube/status/1918197709930205503", date: "May 2025", featured: true },
-      { title: "Ajah's $150 Win: Web3 Success Secret", url: "https://x.com/ajah_elube/status/1961474729652400616", date: "Aug 2025", featured: true },
-      { title: "Breaking Through Writer's Block", url: "https://x.com/ajah_elube/status/1941378824014266593", date: "July 2025", featured: true },
-      { title: " The One Reader Approach", url: "https://x.com/ajah_elube/status/1864321495385719184", date: "Dec 4 2024" },
-      { title: "How to Do Research", url: "https://x.com/ajah_elube/status/1886665442837545438", date: "Feb 4 2025" },
-      { title: "Understanding Your Audience", url: "https://x.com/ajah_elube/status/1876662051008823618", date: "Jan 2025" },
-      { title: "Building a Strategic Presence on X", url: "https://x.com/ajah_elube/status/1853094999061385528", date: "Nov 2024" },
-      { title: "How to Stand Out as a Small Account", url: "https://x.com/ajah_elube/status/1842573441787994212", date: "Oct 2024" },
-      { title: "Understanding X Algorithm", url: "https://x.com/ajah_elube/status/1842229902566650310", date: "Oct 2024" },
-      { title: "Avoiding Shadowban", url: "https://x.com/ajah_elube/status/1843679405039603779", date: "Oct 2024" },
-      { title: "Bringing Creativity to the Blockchain", url: "https://x.com/ajah_elube/status/1850931814040551884", date: "Oct 2024" },
-      { title: "Celebrate Your Wins", url: "https://x.com/ajah_elube/status/1852960549195190574", date: "Nov 2024" },
-      { title: "Dear Creators", url: "https://x.com/ajah_elube/status/1870499605580013895", date: "Dec 2024" },
-      { title: "Voice Block", url: "https://x.com/ajah_elube/status/1852021173199962332", date: "Oct 2024" },
-      { title: "Impersonation on X", url: "https://x.com/ajah_elube/status/1852358006450893059", date: "Nov 2024" },
-      // { title: "", url: "", date: "" },
-    ],
-    projects: [
-    { title:" A Beginner’s Guide to Stonbassadors Program", url: "https://x.com/ajah_elube/status/1849478163862077878", date: "Oct 2024" ,featured: true },
-    { title:"Calling All Video Creators to Shine with STONfi!", url: "https://x.com/ajah_elube/status/185450793373372876",date: "Oct 2024"  },
-    { title: "Grant Program", url: "https://x.com/ajah_elube/status/1850566904739434646", date: "Oct 2024" },
-    { title: "How To Write For A Project (Using STONfi As A Case Study)", url: "https://x.com/ajah_elube/status/1845855867951829026", date: "Oct 2024" },
-    { title: "Grow STONfi With Stonbassadors", url: "https://x.com/ajah_elube/status/1844379550072840198", date: "Oct 2024" },
-    { title: "DeFi Safety with STONfi", url: "https://x.com/ajah_elube/status/1841459474319409317", date: "Oct 2024" },
-    { title: "Why You Gats Know About STON.fi", url: "https://x.com/ajah_elube/status/1832068054731112671", date: "Sept 2024" },
+  { content: "Lombard is redefining how Bitcoin moves onchain.", url: "https://x.com/ajah_elube/status/1979095043786051702", engagement: "4.4K likes",featured: true, image: "/assets/winning (13).jpg" },
+  { content: "I was astonished to be spotlighted as a BARD of the Week.", url: "https://x.com/ajah_elube/status/1979247757560098967", engagement: "22k likes", featured: true, image: "/assets/winning (12).jpg" },
+  { content: "Bitget Wallet", url: "https://x.com/ajah_elube/status/1907777517357830624", engagement: "48k views", image: "/assets/winning (11).jpg" },
+  { content: "Toby", url: "https://x.com/ajah_elube/status/1939050975592878205", engagement: "15k views", image: "/assets/winning (10).jpg" },
+  { content: "URnetwork", url: "https://x.com/ajah_elube/status/1941461980100858335", engagement: "11k views", image: "/assets/winning (9).jpg" },
+  { content: "Skillful AI", url: "https://x.com/ajah_elube/status/1928067236003996091", engagement: "7k views", image: "/assets/winning (8).jpg" },
+  { content: "Hilo Token", url: "https://x.com/ajah_elube/status/1892242340896539073", engagement: "3.8k views", image: "/assets/winning (7).jpg" },
+  { content: "UpRock", url: "https://x.com/ajah_elube/status/1900578005711261833?s=19", engagement: "32k views", image: "/assets/winning (6).jpg" },
+  { content: "CoinW", url: "https://x.com/ajah_elube/status/1909270198302949632?s=19", engagement: "15k views", image: "/assets/winning (5).jpg" },
+  { content: "AQA", url: "https://x.com/ajah_elube/status/1903476189299155391", engagement: "12k views", image: "/assets/winning (4).jpg" },
+  { content: "Fantasy Fanton", url: "https://x.com/ajah_elube/status/1866000818287136864", engagement: "2.8k views", image: "/assets/winning (3).jpg" },
+  { content: "Circularweb3 (PART ONE)", url: "https://x.com/ajah_elube/status/1874711794746339659", engagement: "2.1k views", image: "/assets/winning (2).jpg" },
+  { content: "Aicoach Mia", url: "https://x.com/ajah_elube/status/1883529393726775622?t=t32ERtEyvTyIW_mas9xhHw&s=19", engagement: "1.8k views", image: "/assets/winning (1).jpg" },
+],
 
-    ],
-    collaborations: [
-      { title: "Freelancing Opportunity", partner: "Loofa", url: "https://x.com/ajah_elube/status/1852732911302090814",date: "Nov 2024" },
-      { title: "Guide to Joining Loofa as a Freelancer", partner: "Loofa", url: "https://x.com/ajah_elube/status/1851635493173125259",date: "Oct 2024"},
-      { title: " Loofa and Freelance", partner: "Loofa", url: "https://x.com/ajah_elube/status/1849818131952267705" ,date: "Oct 2024"},
-      { title: " FlipOutGG ", partner: " FlipOutGG", url: "https://x.com/ajah_elube/status/1851296393975267490" ,date: "Oct 2024"},
-      { title: " From Dreams to Reality ", partner: "Brokie", url: "https://x.com/ajah_elube/status/1824403433119498704" ,date: "Aug 2024"},
-      { title: " MyTONSwap", partner: "MyTONSwap", url: "https://x.com/ajah_elube/status/1828738433985978534" ,date: "Aug 2024"},
-      { title: "FISH ", partner: "FISH", url: "https://x.com/ajah_elube/status/1848398821149274330" ,date: "Oct 2024"},
-                // { title: " ", partner: "", url: "" ,date: ""},
-      
-    ],
-    brandinweb3: [
-      { title: "Brand in Web3 (Introduction)", url: "https://x.com/ajah_elube/status/1853460434860347428", date: "Nov 2024" },
-      { title: "Practical Steps to Strengthen Your Brand ", url: "https://x.com/ajah_elube/status/1853685751201829119?" ,date: "Nov 2024"},
-      { title: "Strategies For Building Trust Within Your Community ",url: "https://x.com/ajah_elube/status/1853812876848283792" ,date: "Nov 2024"},
-      { title: "How to Stand Out in a Crowded Web3 Space", url: "https://x.com/ajah_elube/status/1854045915385880922" ,date: "Nov 2024"},
-      { title: " Why Consistency Matters in Web3", url: "https://x.com/ajah_elube/status/1854181743491686839" ,date: "Nov 2024"},
-  
-    ],
+    WritingForX: [
+  { title:"Writing A Thread That Wins", url:"https://x.com/ajah_elube/status/1918197709930205503", date:"May 2025", featured:true, image:"/assets/writingforx (1).jpg" },
+  { title:"Ajah's $150 Win: Web3 Success Secret", url:"https://x.com/ajah_elube/status/1961474729652400616", date:"Aug 2025", featured:true, image:"/assets/writingforx (2).jpg" },
+  { title:"Breaking Through Writer's Block", url:"https://x.com/ajah_elube/status/1941378824014266593", date:"July 2025", featured:true, image:"/assets/writingforx (3).jpg" },
+  { title:"The One Reader Approach", url:"https://x.com/ajah_elube/status/1864321495385719184", date:"Dec 4 2024", image:"/assets/writingforx (4).jpg" },
+  { title:"How to Do Research", url:"https://x.com/ajah_elube/status/1886665442837545438", date:"Feb 4 2025", image:"/assets/writingforx (5).jpg" },
+  { title:"Understanding Your Audience", url:"https://x.com/ajah_elube/status/1876662051008823618", date:"Jan 2025", image:"/assets/writingforx (6).jpg" },
+  { title:"Building a Strategic Presence on X", url:"https://x.com/ajah_elube/status/1853094999061385528", date:"Nov 2024", image:"/assets/writingforx (7).jpg" },
+  { title:"How to Stand Out as a Small Account", url:"https://x.com/ajah_elube/status/1842573441787994212", date:"Oct 2024", image:"/assets/writingforx (8).jpg" },
+  { title:"Understanding X Algorithm", url:"https://x.com/ajah_elube/status/1842229902566650310", date:"Oct 2024", image:"/assets/writingforx (9).jpg" },
+  { title:"Avoiding Shadowban", url:"https://x.com/ajah_elube/status/1843679405039603779", date:"Oct 2024", image:"/assets/writingforx (10).jpg" },
+  { title:"Bringing Creativity to the Blockchain", url:"https://x.com/ajah_elube/status/1850931814040551884", date:"Oct 2024", image:"/assets/writingforx (11).jpg" },
+  { title:"Celebrate Your Wins", url:"https://x.com/ajah_elube/status/1852960549195190574", date:"Nov 2024", image:"/assets/writingforx (12).jpg" },
+  { title:"Dear Creators", url:"https://x.com/ajah_elube/status/1870499605580013895", date:"Dec 2024", image:"/assets/writingforx (13).jpg" },
+  { title:"Voice Block", url:"https://x.com/ajah_elube/status/1852021173199962332", date:"Oct 2024", image:"/assets/writingforx (14).jpg" },
+  { title:"Impersonation on X", url:"https://x.com/ajah_elube/status/1852358006450893059", date:"Nov 2024", image:"/assets/writingforx (15).jpg" },
+],
+
+   
+   
+    projects: [
+  { title:"A Beginner’s Guide to Stonbassadors Program", url:"https://x.com/ajah_elube/status/1849478163862077878", date:"Oct 2024", featured:true, image:"/assets/projects (1).jpg" },
+  { title:"Calling All Video Creators to Shine with STONfi!", url:"https://x.com/ajah_elube/status/185450793373372876", date:"Oct 2024", image:"/assets/projects (2).jpg" },
+  { title:"Grant Program", url:"https://x.com/ajah_elube/status/1850566904739434646", date:"Oct 2024", image:"/assets/projects (3).jpg" },
+  { title:"How To Write For A Project (Using STONfi As A Case Study)", url:"https://x.com/ajah_elube/status/1845855867951829026", date:"Oct 2024",featured: true, image:"/assets/projects (4).jpg" },
+  { title:"Grow STONfi With Stonbassadors", url:"https://x.com/ajah_elube/status/1844379550072840198", date:"Oct 2024", image:"/assets/projects (5).jpg" },
+  { title:"DeFi Safety with STONfi", url:"https://x.com/ajah_elube/status/1841459474319409317", date:"Oct 2024", image:"/assets/projects (6).jpg" },
+  { title:"Why You Gats Know About STON.fi", url:"https://x.com/ajah_elube/status/1832068054731112671", date:"Sept 2024", image:"/assets/projects (7).jpg" },
+],
+
+   collaborations: [
+  { title:"Freelancing Opportunity", partner:"Loofa", url:"https://x.com/ajah_elube/status/1852732911302090814", date:"Nov 2024",featured: true, image:"/assets/collaborations (1).jpg" },
+  { title:"Guide to Joining Loofa as a Freelancer", partner:"Loofa", url:"https://x.com/ajah_elube/status/1851635493173125259",featured: true, date:"Oct 2024", image:"/assets/collaborations (2).jpg" },
+  { title:"Loofa and Freelance", partner:"Loofa", url:"https://x.com/ajah_elube/status/1849818131952267705", date:"Oct 2024", image:"/assets/collaborations (3).jpg" },
+  { title:"FlipOutGG", partner:"FlipOutGG", url:"https://x.com/ajah_elube/status/1851296393975267490", date:"Oct 2024", image:"/assets/collaborations (4).jpg" },
+  { title:"From Dreams to Reality", partner:"Brokie", url:"https://x.com/ajah_elube/status/1824403433119498704", date:"Aug 2024", image:"/assets/collaborations (5).jpg" },
+  { title:"MyTONSwap", partner:"MyTONSwap", url:"https://x.com/ajah_elube/status/1828738433985978534", date:"Aug 2024", image:"/assets/collaborations (6).jpg" },
+  { title:"FISH", partner:"FISH", url:"https://x.com/ajah_elube/status/1848398821149274330", date:"Oct 2024", image:"/assets/collaborations (7).jpg" },
+],
+
+   brandinweb3: [
+  { title:"Brand in Web3 (Introduction)", url:"https://x.com/ajah_elube/status/1853460434860347428", date:"Nov 2024",featured: true, image:"/assets/brandinweb3 (1).jpg" },
+  { title:"Practical Steps to Strengthen Your Brand", url:"https://x.com/ajah_elube/status/1853685751201829119?", date:"Nov 2024",featured: true, image:"/assets/brandinweb3 (2).jpg" },
+  { title:"Strategies For Building Trust Within Your Community", url:"https://x.com/ajah_elube/status/1853812876848283792", date:"Nov 2024", image:"/assets/brandinweb3 (3).jpg" },
+  { title:"How to Stand Out in a Crowded Web3 Space", url:"https://x.com/ajah_elube/status/1854045915385880922", date:"Nov 2024", image:"/assets/brandinweb3 (4).jpg" },
+  { title:"Why Consistency Matters in Web3", url:"https://x.com/ajah_elube/status/1854181743491686839", date:"Nov 2024", image:"/assets/brandinweb3 (5).jpg" },
+],
+
     goodMorningPosts: [
       { content: "Good morning! Today's reminder: Your first draft doesn't have to be perfect.", url: "https://twitter.com/username/status/126", date: "Oct 30" },
       { content: "Good morning! Write before you doubt. Create before you criticize.", url: "https://twitter.com/username/status/127", date: "Oct 29" },
@@ -244,33 +244,44 @@ const FeaturedWritingCard = ({ item, icon: Icon, type }) => {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <a
-      href={item.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className={`block p-6 bg-white/90 backdrop-blur-sm rounded-xl border-2 transition-all duration-300 ${hovered ? 'shadow-2xl scale-105 border-purple-400 bg-gradient-to-br from-purple-50 to-blue-50' : 'shadow-md border-purple-100/50'}`}
-    >
-      <div className="flex items-start gap-4">
-        <div className={`p-3 rounded-lg transition-all duration-300 ${hovered ? 'bg-gradient-to-br from-purple-500 to-blue-500 text-white scale-110' : 'bg-purple-100 text-purple-600'}`}>
-          {typeof Icon === 'function' ? <Icon /> : <Icon size={24} />}
-        </div>
-        <div className="flex-1">
-          <h3 className="font-semibold text-lg mb-2 text-gray-800">
-            {item.title || item.content?.substring(0, 60) + '...' || item.name}
-          </h3>
-          {item.description && <p className="text-gray-600 text-sm mb-2">{item.description}</p>}
-          {item.content && <p className="text-gray-600 text-sm mb-2">{item.content}</p>}
-          {item.date && <p className="text-gray-400 text-xs mt-2">{item.date}</p>}
-          {item.engagement && <p className="text-purple-500 text-xs mt-2 font-medium">{item.engagement}</p>}
-          <div className="flex items-center gap-1 text-purple-600 text-sm mt-3 font-medium">
-            Read on X <ExternalLink size={14} />
-          </div>
+  <a
+    href={item.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    onMouseEnter={() => setHovered(true)}
+    onMouseLeave={() => setHovered(false)}
+    className={`block p-6 bg-white/90 backdrop-blur-sm rounded-xl border-2 transition-all duration-300 ${hovered ? 'shadow-2xl scale-105 border-purple-400 bg-gradient-to-br from-purple-50 to-blue-50' : 'shadow-md border-purple-100/50'}`}
+  >
+   {/* Custom Thumbnail */}
+{item.image && (
+  <div className="mb-4 rounded-lg overflow-hidden">
+    <img
+      src={item.image}
+      alt={item.title || item.content}
+      className="w-full h-56 object-cover rounded-lg"
+    />
+  </div>
+)}
+
+
+    <div className="flex items-start gap-4">
+      <div className={`p-3 rounded-lg transition-all duration-300 ${hovered ? 'bg-gradient-to-br from-purple-500 to-blue-500 text-white scale-110' : 'bg-purple-100 text-purple-600'}`}>
+        {typeof Icon === 'function' ? <Icon /> : <Icon size={24} />}
+      </div>
+      <div className="flex-1">
+        <h3 className="font-semibold text-lg mb-2 text-gray-800">
+          {item.title || item.content?.substring(0, 60) + '...' || item.name}
+        </h3>
+        {item.date && <p className="text-gray-400 text-xs mt-2">{item.date}</p>}
+        {item.engagement && <p className="text-purple-500 text-xs mt-2 font-medium">{item.engagement}</p>}
+        <div className="flex items-center gap-1 text-purple-600 text-sm mt-3 font-medium">
+          Read on X <ExternalLink size={14} />
         </div>
       </div>
-    </a>
-  );
+    </div>
+  </a>
+);
+
 };
 
 const RecentWritings = ({ onNavigate }) => {
@@ -298,7 +309,7 @@ const RecentWritings = ({ onNavigate }) => {
 
       <div className={`relative z-10 max-w-6xl mx-auto transition-all duration-1000 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
         <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-1 pb-10 bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-1 pb-4  bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 bg-clip-text text-transparent">
             Proof Of Work
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -306,8 +317,8 @@ const RecentWritings = ({ onNavigate }) => {
           </p>
         </div>
         {featuredPosts.length > 0 && (
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+          <div className="mb-12 ">
+            <h3 className=" text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2 ">
               
                Writing For <XLogo size={28} className="text-gray-900" />
             </h3>
@@ -367,34 +378,45 @@ const WritingCard = ({ item, icon: Icon, type }) => {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <a
-      href={item.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className={`block p-6 bg-white/90 backdrop-blur-sm rounded-xl border-2 transition-all duration-300 ${hovered ? 'shadow-xl scale-105 border-purple-300 bg-gradient-to-br from-purple-50 to-blue-50' : 'shadow-md border-purple-100/50'}`}
-    >
-      <div className="flex items-start gap-4">
-        <div className={`p-3 rounded-lg ${hovered ? 'bg-gradient-to-br from-purple-500 to-blue-500 text-white' : 'bg-purple-100 text-purple-600'} transition-all duration-300`}>
-          {typeof Icon === 'function' ? <Icon /> : <Icon size={24} />}
-        </div>
-        <div className="flex-1">
-          <h3 className="font-semibold text-lg mb-2 text-gray-800">
-            {item.title || item.content?.substring(0, 60) + '...' || item.name}
-          </h3>
-          {item.description && <p className="text-gray-600 text-sm mb-2">{item.description}</p>}
-          {item.partner && <p className="text-gray-500 text-sm">With {item.partner}</p>}
-          {item.articles && <p className="text-gray-500 text-sm">{item.articles} articles published</p>}
-          {item.date && <p className="text-gray-400 text-xs mt-2">{item.date}</p>}
-          {item.engagement && <p className="text-purple-500 text-xs mt-2 font-medium">{item.engagement}</p>}
-          <div className="flex items-center gap-1 text-purple-600 text-sm mt-3 font-medium">
-            View on X <ExternalLink size={14} />
-          </div>
+  <a
+    href={item.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    onMouseEnter={() => setHovered(true)}
+    onMouseLeave={() => setHovered(false)}
+    className={`block p-6 bg-white/90 backdrop-blur-sm rounded-xl border-2 transition-all duration-300 ${hovered ? 'shadow-xl scale-105 border-purple-300 bg-gradient-to-br from-purple-50 to-blue-50' : 'shadow-md border-purple-100/50'}`}
+  >
+    {/* Custom Thumbnail */}
+{item.image && (
+  <div className="mb-4 rounded-lg overflow-hidden">
+    <img
+      src={item.image}
+      alt={item.title || item.content}
+      className="w-full h-56 object-cover rounded-lg"
+    />
+  </div>
+)}
+
+
+    <div className="flex items-start gap-4">
+      <div className={`p-3 rounded-lg ${hovered ? 'bg-gradient-to-br from-purple-500 to-blue-500 text-white' : 'bg-purple-100 text-purple-600'} transition-all duration-300`}>
+        {typeof Icon === 'function' ? <Icon /> : <Icon size={24} />}
+      </div>
+      <div className="flex-1">
+        <h3 className="font-semibold text-lg mb-2 text-gray-800">
+          {item.title || item.content?.substring(0, 60) + '...' || item.name}
+        </h3>
+        {item.partner && <p className="text-gray-500 text-sm">With {item.partner}</p>}
+        {item.date && <p className="text-gray-400 text-xs mt-2">{item.date}</p>}
+        {item.engagement && <p className="text-purple-500 text-xs mt-2 font-medium">{item.engagement}</p>}
+        <div className="flex items-center gap-1 text-purple-600 text-sm mt-3 font-medium">
+          View on X <ExternalLink size={14} />
         </div>
       </div>
-    </a>
-  );
+    </div>
+  </a>
+);
+
 };
 
 const WritingsSection = () => {
@@ -467,10 +489,10 @@ const WritingsSection = () => {
           mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}
       >
-        <h2 className="text-4xl sm:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 bg-clip-text text-transparent">
+        <h2 className="text-4xl sm:text-5xl font-bold text-center mb-2 pb-4 bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 bg-clip-text text-transparent">
           Writings & Thoughts
         </h2>
-        <p className="text-center text-gray-700 mb-12 text-lg">
+        <p className="text-center text-gray-700 mb-4  text-lg">
           Explore curated threads, projects, collaborations, and posts that reflect creativity and impact.
         </p>
 
@@ -542,7 +564,7 @@ const Contact = () => {
         <h2 className="text-4xl sm:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-purple-600 via-blue-600 to-pink-600 bg-clip-text text-transparent">
           Let's Connect
         </h2>
-        <p className="text-center text-gray-700 mb-12 text-lg">
+        <p className="text-center text-gray-700 mb-4 text-lg">
           Have a project in mind? Want to collaborate? I'd love to hear from you.
         </p>
 
